@@ -21,7 +21,7 @@ interface SettingsContextType {
 const defaultSettings: Settings = {
   websiteName: 'Website Building',
   contactEmail: 'info@websitebuilding.com',
-  whatsappNumber: '8340323183',
+  whatsappNumber: '+91 8340323183',
   heroHeadline: 'Grow Your Business \\nwith Professional \\n<span class="text-amber-400">Digital Services</span>',
   heroSubheadline: 'We provide Website Development, SEO, Ads, and complete digital solutions to grow your business online.',
   heroImages: [
@@ -55,9 +55,9 @@ export function SettingsProvider({ children }: { children: ReactNode }) {
             // update in firestore
             await setDoc(docRef, { websiteName: 'Website Building' }, { merge: true });
           }
-          if (fetchedSettings.whatsappNumber === '911234567890' || !fetchedSettings.whatsappNumber) {
-            fetchedSettings.whatsappNumber = '8340323183';
-            await setDoc(docRef, { whatsappNumber: '8340323183' }, { merge: true });
+          if (fetchedSettings.whatsappNumber === '911234567890' || fetchedSettings.whatsappNumber === '8340323183' || !fetchedSettings.whatsappNumber) {
+            fetchedSettings.whatsappNumber = '+91 8340323183';
+            await setDoc(docRef, { whatsappNumber: '+91 8340323183' }, { merge: true });
           }
           setSettings({ ...defaultSettings, ...fetchedSettings });
         }
