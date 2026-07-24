@@ -76,10 +76,6 @@ export default function Footer() {
               <p className="text-slate-300">Email Us:</p>
               <a href={`mailto:${settings.contactEmail}`} className="hover:text-amber-400 transition-colors font-medium">{settings.contactEmail}</a>
             </li>
-            <li>
-              <p className="text-slate-300">Address:</p>
-              <p className="text-slate-400 font-medium">India</p>
-            </li>
           </ul>
         </div>
       </div>
