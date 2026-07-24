@@ -2,8 +2,7 @@ import { useState, useEffect } from 'react';
 import { db } from '../firebase';
 import { collection, query, orderBy, getDocs, limit, deleteDoc, doc, updateDoc } from 'firebase/firestore';
 import AdminGenericList from '../components/AdminGenericList';
-import { PhoneCall, Users, Calendar } from 'lucide-react';
-
+import { PhoneCall, Users, Calendar, DownloadCloud, Loader2 } from 'lucide-react';
 export default function AdminLeads() {
   const [activeTab, setActiveTab] = useState<'leads' | 'bookings'>('leads');
   const [data, setData] = useState<any[]>([]);
@@ -170,30 +169,32 @@ export default function AdminLeads() {
 
   return (
     <div className="space-y-6">
-      {/* Tabs */}
-      <div className="flex items-center gap-2 bg-[#0A1128]/80 p-1 rounded-xl border border-slate-800 max-w-md">
-        <button
-          onClick={() => setActiveTab('leads')}
-          className={`flex-1 flex items-center justify-center gap-2 py-2.5 px-4 rounded-lg font-semibold text-sm transition-all duration-200 ${
-            activeTab === 'leads'
-              ? 'bg-gradient-to-r from-amber-400 to-amber-500 text-slate-900 font-bold shadow-md shadow-amber-500/10'
-              : 'text-slate-400 hover:text-white hover:bg-slate-800/30'
-          }`}
-        >
-          <Users className="w-4 h-4" />
-          Contact Leads
-        </button>
-        <button
-          onClick={() => setActiveTab('bookings')}
-          className={`flex-1 flex items-center justify-center gap-2 py-2.5 px-4 rounded-lg font-semibold text-sm transition-all duration-200 ${
-            activeTab === 'bookings'
-              ? 'bg-gradient-to-r from-amber-400 to-amber-500 text-slate-900 font-bold shadow-md shadow-amber-500/10'
-              : 'text-slate-400 hover:text-white hover:bg-slate-800/30'
-          }`}
-        >
-          <Calendar className="w-4 h-4" />
-          Consultation Bookings
-        </button>
+      {/* Tabs and Actions */}
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+        <div className="flex items-center gap-2 bg-[#0A1128]/80 p-1 rounded-xl border border-slate-800 max-w-md w-full sm:w-auto">
+          <button
+            onClick={() => setActiveTab('leads')}
+            className={`flex-1 flex items-center justify-center gap-2 py-2.5 px-4 rounded-lg font-semibold text-sm transition-all duration-200 ${
+              activeTab === 'leads'
+                ? 'bg-gradient-to-r from-amber-400 to-amber-500 text-slate-900 font-bold shadow-md shadow-amber-500/10'
+                : 'text-slate-400 hover:text-white hover:bg-slate-800/30'
+            }`}
+          >
+            <Users className="w-4 h-4" />
+            Contact Leads
+          </button>
+          <button
+            onClick={() => setActiveTab('bookings')}
+            className={`flex-1 flex items-center justify-center gap-2 py-2.5 px-4 rounded-lg font-semibold text-sm transition-all duration-200 ${
+              activeTab === 'bookings'
+                ? 'bg-gradient-to-r from-amber-400 to-amber-500 text-slate-900 font-bold shadow-md shadow-amber-500/10'
+                : 'text-slate-400 hover:text-white hover:bg-slate-800/30'
+            }`}
+          >
+            <Calendar className="w-4 h-4" />
+            Consultation Bookings
+          </button>
+        </div>
       </div>
 
       {loading ? (

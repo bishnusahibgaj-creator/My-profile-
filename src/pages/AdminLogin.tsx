@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { auth } from '../firebase';
 import { 
-  signInWithEmailAndPassword 
+  signInWithEmailAndPassword,
+  createUserWithEmailAndPassword
 } from 'firebase/auth';
 import { 
   Lock, 
@@ -29,6 +30,8 @@ export default function AdminLogin() {
         return 'Please enter a valid email address.';
       case 'auth/user-disabled':
         return 'This admin account has been disabled.';
+      case 'auth/invalid-credential':
+        return 'Invalid email or password. Please verify your credentials.';
       case 'auth/user-not-found':
         return 'No account found with this email. Please contact the system administrator.';
       case 'auth/wrong-password':
@@ -62,6 +65,32 @@ export default function AdminLogin() {
     }
   };
 
+  const handleRegister = async (e: React.MouseEvent) => {
+    e.preventDefault();
+    if (!email || !password) {
+      setError('Please fill in both email and password to register.');
+      return;
+    }
+
+    setLoading(true);
+    setError(null);
+    setSuccess(null);
+
+    try {
+      await createUserWithEmailAndPassword(auth, email, password);
+      setSuccess('Account created and logged in successfully!');
+    } catch (err: any) {
+      console.error('Registration Error:', err);
+      if (err.code === 'auth/email-already-in-use') {
+        setError('An account already exists with this email.');
+      } else {
+        setError(getErrorMessage(err.code));
+      }
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <div className="min-h-screen bg-[#050A18] flex items-center justify-center p-4 relative overflow-hidden font-sans">
       {/* Background Ambient Glows */}
@@ -77,7 +106,7 @@ export default function AdminLogin() {
             </div>
           </div>
           <h1 className="text-2xl sm:text-3xl font-extrabold tracking-tight bg-gradient-to-r from-white via-slate-200 to-amber-200 bg-clip-text text-transparent">
-            BizGrow Portal
+            Admin Portal
           </h1>
           <p className="text-sm text-slate-400 mt-2">
             Secure Administrator Access Control
@@ -156,11 +185,12 @@ export default function AdminLogin() {
               </div>
             </div>
 
-            {/* Submit Button */}
+          {/* Submit Buttons */}
+          <div className="flex flex-col gap-3 mt-2">
             <button
               type="submit"
               disabled={loading}
-              className="w-full py-3 bg-gradient-to-r from-amber-400 to-amber-500 text-slate-950 font-bold rounded-xl transition-all duration-200 hover:brightness-110 shadow-lg shadow-amber-500/10 flex items-center justify-center gap-2 hover:shadow-amber-500/20 disabled:opacity-50 disabled:pointer-events-none mt-2"
+              className="w-full py-3 bg-gradient-to-r from-amber-400 to-amber-500 text-slate-950 font-bold rounded-xl transition-all duration-200 hover:brightness-110 shadow-lg shadow-amber-500/10 flex items-center justify-center gap-2 hover:shadow-amber-500/20 disabled:opacity-50 disabled:pointer-events-none"
             >
               {loading ? (
                 <div className="w-5 h-5 border-2 border-slate-950 border-t-transparent rounded-full animate-spin"></div>
@@ -171,16 +201,29 @@ export default function AdminLogin() {
                 </>
               )}
             </button>
-          </form>
-
-          {/* Secure Footer Notice */}
-          <div className="mt-6 pt-6 border-t border-slate-800/60 text-slate-400 text-xs flex gap-2.5 items-start leading-relaxed">
-            <Info className="w-4 h-4 text-amber-400 shrink-0 mt-0.5 animate-pulse" />
-            <div>
-              <p className="font-semibold text-slate-300 mb-1">Access Notice</p>
-              This is a private administration console. Registrations have been deactivated. Unauthorised access attempts are strictly monitored.
-            </div>
+            <button
+              type="button"
+              onClick={handleRegister}
+              disabled={loading}
+              className="w-full py-3 bg-slate-800 text-white font-semibold rounded-xl transition-all duration-200 hover:bg-slate-700 flex items-center justify-center gap-2 disabled:opacity-50 disabled:pointer-events-none border border-slate-700"
+            >
+              {loading ? (
+                <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+              ) : (
+                <span>Register New Admin Account</span>
+              )}
+            </button>
           </div>
+        </form>
+
+        {/* Secure Footer Notice */}
+        <div className="mt-6 pt-6 border-t border-slate-800/60 text-slate-400 text-xs flex gap-2.5 items-start leading-relaxed">
+          <Info className="w-4 h-4 text-amber-400 shrink-0 mt-0.5" />
+          <div>
+            <p className="font-semibold text-slate-300 mb-1">Access Notice</p>
+            This is a private administration console. Unauthorised access attempts are strictly monitored. If you don't have an account, you can create one above.
+          </div>
+        </div>
         </div>
       </div>
     </div>

@@ -6,7 +6,7 @@ export default function ContactPage() {
     <div className="pt-20">
       <SEO 
         title="Contact Us"
-        description="Get in touch with BizGrow Digital. Book a free consultation and let's discuss how we can grow your business."
+        description="Get in touch with Website Building. Book a free consultation and let's discuss how we can grow your business."
       />
       <Contact />
     </div>

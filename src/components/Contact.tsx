@@ -43,6 +43,25 @@ export default function Contact() {
         status: 'New',
         createdAt: serverTimestamp()
       });
+      
+      // If a webhook is configured, also post the data there for Google Sheets integration
+      if (settings.googleSheetsWebhookUrl) {
+        try {
+          await fetch(settings.googleSheetsWebhookUrl, {
+            method: 'POST',
+            mode: 'no-cors', // Important for simple Google Apps Script web apps to avoid CORS preflight issues
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              timestamp: new Date().toISOString(),
+              type: 'Lead',
+              ...formData
+            })
+          });
+        } catch (webhookErr) {
+          console.warn("Webhook submission failed:", webhookErr);
+        }
+      }
+
       setSubmitStatus('success');
       
       setFormData({ name: '', phone: '', email: '', service: '', message: '' });

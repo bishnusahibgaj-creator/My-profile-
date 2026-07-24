@@ -5,10 +5,10 @@ export default function AboutPage() {
     <div className="pt-32 pb-24 bg-[#050A18] text-slate-300 min-h-screen">
       <SEO 
         title="About Us"
-        description="Learn why businesses trust BizGrow Digital for their online growth. Experience, results, and premium service you can rely on."
+        description="Learn why businesses trust Website Building for their online growth. Experience, results, and premium service you can rely on."
       />
       <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center">
-        <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">About BizGrow Digital</h1>
+        <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">About Website Building</h1>
         <p className="text-xl text-slate-400 mb-12">
           We are a premium digital marketing agency dedicated to helping businesses achieve exponential growth online.
         </p>

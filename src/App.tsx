@@ -10,7 +10,6 @@ import PricingPage from './pages/PricingPage';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsConditions from './pages/TermsConditions';
 import RefundPolicy from './pages/RefundPolicy';
-import SitemapPage from './pages/SitemapPage';
 import AdminLayout from './pages/AdminLayout';
 import AdminDashboard from './pages/AdminDashboard';
 import AdminAiTools from './pages/AdminAiTools';
@@ -38,7 +37,6 @@ export default function App() {
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/terms-conditions" element={<TermsConditions />} />
         <Route path="/refund-policy" element={<RefundPolicy />} />
-        <Route path="/sitemap" element={<SitemapPage />} />
       </Route>
 
       <Route path="/admin" element={<AdminLayout />}>

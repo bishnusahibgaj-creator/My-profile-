@@ -18,7 +18,7 @@ export default function Footer() {
               <img src="https://images.unsplash.com/photo-1614680376593-902f74cf0d41?w=100&q=80" alt="Logo" className="w-full h-full object-cover" />
             </div>
             <span className="flex flex-col leading-tight">
-              <span>{settings.websiteName || 'Digital Growth'}</span>
+              <span>{settings.websiteName || 'Website Building'}</span>
               <span className="text-[10px] text-amber-400 font-medium uppercase tracking-widest">Web Solutions</span>
             </span>
           </Link>
@@ -51,7 +51,6 @@ export default function Footer() {
             )}
             <li><Link to="/about" onClick={scrollToTop} className="hover:text-amber-400 transition-colors">About Us</Link></li>
             <li><Link to="/contact" onClick={scrollToTop} className="hover:text-amber-400 transition-colors">Contact</Link></li>
-            <li><Link to="/sitemap" onClick={scrollToTop} className="hover:text-amber-400 transition-colors">Sitemap</Link></li>
           </ul>
         </div>
 
@@ -87,13 +86,12 @@ export default function Footer() {
 
       <div className="max-w-7xl mx-auto px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-4 pt-8 border-t border-slate-800 text-xs">
         <div>
-          &copy; {new Date().getFullYear()} {settings.websiteName || 'Digital Growth Web Solutions'}. All rights reserved.
+          &copy; {new Date().getFullYear()} {settings.websiteName || 'Website Building Web Solutions'}. All rights reserved.
         </div>
         <div className="flex gap-4">
           <Link to="/privacy-policy" onClick={scrollToTop} className="hover:text-amber-400 transition-colors">Privacy Policy</Link>
           <Link to="/refund-policy" onClick={scrollToTop} className="hover:text-amber-400 transition-colors">Refund Policy</Link>
           <Link to="/terms-conditions" onClick={scrollToTop} className="hover:text-amber-400 transition-colors">Terms & Conditions</Link>
-          <Link to="/sitemap" onClick={scrollToTop} className="hover:text-amber-400 transition-colors">Sitemap</Link>
         </div>
       </div>
     </footer>

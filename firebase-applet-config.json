@@ -6,5 +6,7 @@
   "firestoreDatabaseId": "ai-studio-bizgrowdigitalst-88aab89c-e5ab-4435-833c-26ca4b2f93a3",
   "storageBucket": "gen-lang-client-0127005591.firebasestorage.app",
   "messagingSenderId": "583978699134",
-  "measurementId": ""
+  "measurementId": "",
+  "oAuthClientId": "583978699134-8t8efsrk7kf2rdf04vcl37p85liqu5n5.apps.googleusercontent.com",
+  "recaptchaSiteKey": ""
 }

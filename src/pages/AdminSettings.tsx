@@ -4,8 +4,8 @@ import { doc, getDoc, setDoc } from 'firebase/firestore';
 
 export default function AdminSettings() {
   const [settings, setSettings] = useState({
-    websiteName: 'BizGrow Digital',
-    contactEmail: 'info@digitalgrowth.com',
+    websiteName: 'Website Building',
+    contactEmail: 'info@websitebuilding.com',
     whatsappNumber: '911234567890',
     heroHeadline: 'Grow Your Business \\nwith Professional \\n<span class="text-amber-400">Digital Services</span>',
     heroSubheadline: 'We provide Website Development, SEO, Ads, and complete digital solutions to grow your business online.',
@@ -14,7 +14,8 @@ export default function AdminSettings() {
       'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop',
       'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop'
     ],
-    showPricing: true
+    showPricing: true,
+    googleSheetsWebhookUrl: ''
   });
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
@@ -130,6 +131,19 @@ export default function AdminSettings() {
                 />
               </div>
             </div>
+            <div>
+              <label className="block text-sm font-medium text-slate-300 mb-1.5">Google Sheets Webhook URL (Optional)</label>
+              <input 
+                type="text" 
+                name="googleSheetsWebhookUrl"
+                value={settings.googleSheetsWebhookUrl || ''} 
+                onChange={handleChange}
+                className="w-full px-4 py-2 bg-[#050A18]/60 border border-slate-700/80 rounded-lg focus:ring-2 focus:ring-amber-500/50 focus:border-transparent outline-none text-white transition-all duration-200" 
+                placeholder="https://script.google.com/macros/s/.../exec"
+              />
+              <p className="text-xs text-slate-500 mt-2">Paste a Google Apps Script Web App URL here to automatically send new contact form submissions directly to your Google Sheet.</p>
+            </div>
+            
             <div>
               <label className="block text-sm font-medium text-slate-300 mb-1.5">Feature Toggles</label>
               <label className="flex items-center gap-3 cursor-pointer select-none mt-3.5">

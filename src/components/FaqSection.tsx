@@ -14,7 +14,7 @@ interface FaqItem {
 const fallbackFaqs = [
   {
     id: 'f1',
-    question: "What services does BizGrow Digital offer?",
+    question: "What services does Website Building offer?",
     answer: "We specialize in high-converting Website Development, Search Engine Optimization (SEO), and targeted Google/Meta Ads campaigns designed to scale your business."
   },
   {

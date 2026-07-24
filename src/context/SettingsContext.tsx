@@ -10,6 +10,7 @@ interface Settings {
   heroSubheadline: string;
   heroImages: string[];
   showPricing?: boolean;
+  googleSheetsWebhookUrl?: string;
 }
 
 interface SettingsContextType {
@@ -18,8 +19,8 @@ interface SettingsContextType {
 }
 
 const defaultSettings: Settings = {
-  websiteName: 'BizGrow Digital',
-  contactEmail: 'info@digitalgrowth.com',
+  websiteName: 'Website Building',
+  contactEmail: 'info@websitebuilding.com',
   whatsappNumber: '911234567890',
   heroHeadline: 'Grow Your Business \\nwith Professional \\n<span class="text-amber-400">Digital Services</span>',
   heroSubheadline: 'We provide Website Development, SEO, Ads, and complete digital solutions to grow your business online.',
@@ -28,7 +29,8 @@ const defaultSettings: Settings = {
     'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop',
     'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop'
   ],
-  showPricing: true
+  showPricing: true,
+  googleSheetsWebhookUrl: ''
 };
 
 const SettingsContext = createContext<SettingsContextType>({
@@ -47,7 +49,13 @@ export function SettingsProvider({ children }: { children: ReactNode }) {
         const docRef = doc(db, 'settings', 'general');
         const docSnap = await getDoc(docRef);
         if (docSnap.exists()) {
-          setSettings({ ...defaultSettings, ...docSnap.data() });
+          const fetchedSettings = docSnap.data();
+          if (fetchedSettings.websiteName === 'BizGrow Digital') {
+            fetchedSettings.websiteName = 'Website Building';
+            // update in firestore
+            await setDoc(docRef, { websiteName: 'Website Building' }, { merge: true });
+          }
+          setSettings({ ...defaultSettings, ...fetchedSettings });
         }
       } catch (error) {
         console.warn("Offline or failed to fetch general settings, using default local settings:", error);
@@ -155,7 +163,7 @@ export function SettingsProvider({ children }: { children: ReactNode }) {
           const faqsColl = collection(db, 'faqs');
           const defaultFaqs = [
             {
-              question: "What services does BizGrow Digital offer?",
+              question: "What services does Website Building offer?",
               answer: "We specialize in high-converting Website Development, Search Engine Optimization (SEO), and targeted Google/Meta Ads campaigns designed to scale your business.",
               order: 1,
               createdAt: serverTimestamp(),

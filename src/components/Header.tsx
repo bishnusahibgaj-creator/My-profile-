@@ -18,7 +18,7 @@ export default function Header() {
             <img src="https://images.unsplash.com/photo-1614680376593-902f74cf0d41?w=100&q=80" alt="Logo" className="w-full h-full object-cover" />
           </div>
           <span className="flex flex-col leading-tight">
-            <span>{settings.websiteName || 'Digital Growth'}</span>
+            <span>{settings.websiteName || 'Website Building'}</span>
             <span className="text-[10px] text-amber-400 font-medium uppercase tracking-widest">Web Solutions</span>
           </span>
         </Link>

@@ -5,7 +5,7 @@ export default function TermsConditions() {
     <div className="pt-32 pb-24 bg-[#050A18] text-slate-300 min-h-screen">
       <SEO 
         title="Terms & Conditions"
-        description="Terms and Conditions for BizGrow Digital. Please read these terms carefully before using our services."
+        description="Terms and Conditions for Website Building. Please read these terms carefully before using our services."
       />
       <div className="max-w-4xl mx-auto px-6 lg:px-8">
         <h1 className="text-3xl md:text-5xl font-bold text-white mb-8">Terms & Conditions</h1>
@@ -21,7 +21,7 @@ export default function TermsConditions() {
           <h2 className="text-2xl font-bold text-white mt-10 mb-4">2. Intellectual Property</h2>
           <p className="mb-4">
             The Service and its original content, features, and functionality are and will remain the exclusive 
-            property of BizGrow Digital and its licensors. Our services are protected by copyright, trademark, 
+            property of Website Building and its licensors. Our services are protected by copyright, trademark, 
             and other laws of both the country and foreign countries.
           </p>
 
@@ -45,7 +45,7 @@ export default function TermsConditions() {
 
           <h2 className="text-2xl font-bold text-white mt-10 mb-4">5. Limitation of Liability</h2>
           <p className="mb-4">
-            In no event shall BizGrow Digital, nor its directors, employees, partners, agents, suppliers, 
+            In no event shall Website Building, nor its directors, employees, partners, agents, suppliers, 
             or affiliates, be liable for any indirect, incidental, special, consequential or punitive damages, 
             including without limitation, loss of profits, data, use, goodwill, or other intangible losses, 
             resulting from your access to or use of or inability to access or use the Service.
@@ -60,7 +60,7 @@ export default function TermsConditions() {
 
           <h2 className="text-2xl font-bold text-white mt-10 mb-4">7. Contact Us</h2>
           <p className="mb-4">
-            If you have any questions about these Terms, please contact us at info@digitalgrowth.com.
+            If you have any questions about these Terms, please contact us at info@websitebuilding.com.
           </p>
         </div>
       </div>

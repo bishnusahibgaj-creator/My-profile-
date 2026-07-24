@@ -88,7 +88,7 @@ export default function AdminLayout() {
           <div className="w-8 h-8 rounded-lg flex items-center justify-center overflow-hidden bg-white/10 border border-white/20">
             <img src="https://images.unsplash.com/photo-1614680376593-902f74cf0d41?w=100&q=80" alt="Logo" className="w-full h-full object-cover" />
           </div>
-          <span className="bg-gradient-to-r from-white to-slate-300 bg-clip-text text-transparent">BizGrow Admin</span>
+          <span className="bg-gradient-to-r from-white to-slate-300 bg-clip-text text-transparent">Admin Portal</span>
         </Link>
         <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="p-2 text-slate-300 hover:text-white transition-colors">
           {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -107,7 +107,7 @@ export default function AdminLayout() {
             <div className="w-8 h-8 rounded-lg flex items-center justify-center overflow-hidden bg-white/10 border border-white/20 shadow-lg shadow-amber-500/10">
               <img src="https://images.unsplash.com/photo-1614680376593-902f74cf0d41?w=100&q=80" alt="Logo" className="w-full h-full object-cover" />
             </div>
-            <span className="bg-gradient-to-r from-white via-slate-200 to-amber-300 bg-clip-text text-transparent">BizGrow Admin</span>
+            <span className="bg-gradient-to-r from-white via-slate-200 to-amber-300 bg-clip-text text-transparent">Admin Portal</span>
           </Link>
         </div>
         

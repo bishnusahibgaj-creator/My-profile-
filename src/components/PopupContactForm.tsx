@@ -41,6 +41,24 @@ export default function PopupContactForm() {
         status: 'New',
         createdAt: serverTimestamp()
       });
+      
+      if (settings.googleSheetsWebhookUrl) {
+        try {
+          await fetch(settings.googleSheetsWebhookUrl, {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              timestamp: new Date().toISOString(),
+              type: 'Popup Lead',
+              ...formData
+            })
+          });
+        } catch (webhookErr) {
+          console.warn("Webhook submission failed:", webhookErr);
+        }
+      }
+
       setSubmitStatus('success');
       setFormData({ name: '', phone: '', email: '', service: '', message: '' });
       

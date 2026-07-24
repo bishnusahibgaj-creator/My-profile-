@@ -5,7 +5,7 @@ export default function RefundPolicy() {
     <div className="pt-32 pb-24 bg-[#050A18] text-slate-300 min-h-screen">
       <SEO 
         title="Refund Policy"
-        description="Refund and Cancellation Policy for BizGrow Digital."
+        description="Refund and Cancellation Policy for Website Building."
       />
       <div className="max-w-4xl mx-auto px-6 lg:px-8">
         <h1 className="text-3xl md:text-5xl font-bold text-white mb-8">Refund Policy</h1>
@@ -14,7 +14,7 @@ export default function RefundPolicy() {
 
           <h2 className="text-2xl font-bold text-white mt-10 mb-4">1. General Policy</h2>
           <p className="mb-4">
-            At BizGrow Digital, we strive to ensure 100% satisfaction with our services. However, due to the nature 
+            At Website Building, we strive to ensure 100% satisfaction with our services. However, due to the nature 
             of digital products and services, our refund policy varies depending on the specific service provided.
           </p>
 
@@ -46,7 +46,7 @@ export default function RefundPolicy() {
 
           <h2 className="text-2xl font-bold text-white mt-10 mb-4">5. How to Request a Refund</h2>
           <p className="mb-4">
-            To request a refund or cancellation, please email us at info@digitalgrowth.com with your project details and the reason for your request. 
+            To request a refund or cancellation, please email us at info@websitebuilding.com with your project details and the reason for your request. 
             We will review your request and respond within 3-5 business days.
           </p>
         </div>
